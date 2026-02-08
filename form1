@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background-color: transparent; margin: 0; padding: 10px; }
+  .form-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    max-width: 500px;
+    margin: auto;
+  }
+  h2 { color: #333; font-size: 22px; margin-bottom: 20px; text-align: center; }
+  .form-group { margin-bottom: 15px; }
+  label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; font-size: 14px; }
+  input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-size: 15px;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #25D366;
+    outline: none;
+  }
+  .row { display: flex; gap: 15px; }
+  .row > div { flex: 1; }
+  
+  .submit-btn {
+    background-color: #25D366;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0px 5px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+  }
+  .submit-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(18, 140, 126, 0.4);
+  }
+</style>
+</head>
+<body>
+
+<div class="form-card">
+  <h2>Wycena indywidualna</h2>
+  <form action="https://api.web3forms.com" method="POST">
+  
+    <!-- ЗАМІНІТЬ ЦЕЙ КЛЮЧ НА ВЛАСТИВИЙ -->
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <div class="form-group">
+      <label>Imię i Nazwisko</label>
+      <input type="text" name="name" placeholder="np. Jan Kowalski" required>
+    </div>
+
+    <div class="form-group">
+      <label>Numer telefonu</label>
+      <input type="tel" name="phone" placeholder="+48 XXX XXX XXX" required>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Szerokość (mm)</label>
+        <input type="number" name="width" placeholder="2000">
+      </div>
+      <div class="form-group">
+        <label>Wysokość (mm)</label>
+        <input type="number" name="height" placeholder="2500">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Rodzaj konstrukcji</label>
+      <select name="type">
+        <option value="Przesuwna">System przesuwny</option>
+        <option value="Teleskopowa">System teleskopowy</option>
+        <option value="Stała">Ścianka stała</option>
+        <option value="Inne">Inne / Nie wiem</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Dodatkowe uwagi (RAL, szkło)</label>
+      <textarea name="message" rows="3" placeholder="np. Kolor RAL 7016, szkło hartowane"></textarea>
+    </div>
+
+    <!-- Сторінка подяки після відправки (опційно) -->
+    <input type="hidden" name="redirect" value="https://web3forms.com">
+
+    <button type="submit" class="submit-btn">Wyślij do bezpłatnej wyceny</button>
+  </form>
+</div>
+
+</body>
+</html>
